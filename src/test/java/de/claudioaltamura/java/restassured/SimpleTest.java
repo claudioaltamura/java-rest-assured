@@ -5,12 +5,11 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 import org.junit.jupiter.api.Test;
 
-class FirstTest {
+class SimpleTest {
 
   @Test
   void getC3PO() {
-
-    get("http://swapi.co/api/people/2/?format=json")
+    get("http://swapi.dev/api/people/2/?format=json")
         .then()
         .assertThat()
         .body("name", equalTo("C-3PO"));
