@@ -25,7 +25,7 @@ class JsonPathTest {
 
     int sumNames = from(response).getInt("name*.length().sum()");
 
-    assertThat(sumNames).isEqualTo(12);
+    assertThat(sumNames).isEqualTo(2490);
   }
 
 }
