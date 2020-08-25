@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
 
-    testImplementation("io.rest-assured:rest-assured:4.3.0")
+    testImplementation("io.rest-assured:rest-assured:4.3.1")
     testImplementation("org.hamcrest:hamcrest-all:1.3")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.1")
     testImplementation("org.assertj:assertj-core:3.16.1")
