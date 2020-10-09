@@ -1,8 +1,9 @@
 package de.claudioaltamura.java.restassured;
 
-import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.*;
 import static io.restassured.path.json.JsonPath.from;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.*;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
