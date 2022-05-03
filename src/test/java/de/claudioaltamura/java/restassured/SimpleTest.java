@@ -10,7 +10,7 @@ class SimpleTest {
 
   @Test
   void whenSuccessOnGetResponse200AndJsonHasRequiredKV() {
-    get("http://swapi.dev/api/people/2/?format=json")
+    get("https://swapi.dev/api/people/2/?format=json")
         .then()
         .statusCode(200)
         .assertThat()
@@ -19,7 +19,7 @@ class SimpleTest {
 
   @Test
   void withRequestWhenSuccessOnGetResponse200() {
-    when().request("GET", "http://swapi.dev/api/people/3/?format=json").then().statusCode(200);
+    when().request("GET", "https://swapi.dev/api/people/3/?format=json").then().statusCode(200);
   }
 
   @Test
@@ -28,6 +28,6 @@ class SimpleTest {
         .then()
         .statusCode(200)
         .assertThat()
-        .body("films", hasItems("http://swapi.dev/api/films/1/", "http://swapi.dev/api/films/2/"));
+        .body("films", hasItems("https://swapi.dev/api/films/1/", "https://swapi.dev/api/films/2/"));
   }
 }
