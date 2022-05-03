@@ -28,6 +28,7 @@ class SimpleTest {
         .then()
         .statusCode(200)
         .assertThat()
-        .body("films", hasItems("https://swapi.dev/api/films/1/", "https://swapi.dev/api/films/2/"));
+        .body(
+            "films", hasItems("https://swapi.dev/api/films/1/", "https://swapi.dev/api/films/2/"));
   }
 }
