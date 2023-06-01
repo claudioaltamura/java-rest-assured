@@ -3,5 +3,5 @@ notifications:
   email:
     recipients:
       - claudio@claudioaltamura.de
-    on_success: always # default: change
-on_failure: always # default: always
+    on_success: always
+on_failure: always
