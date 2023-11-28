@@ -3,31 +3,28 @@ package de.claudioaltamura.java.restassured;
 import static io.restassured.RestAssured.*;
 import static io.restassured.path.json.JsonPath.from;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.*;
 
 import java.util.List;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled
 class JsonPathTest {
 
   @Test
-  void findAll() {
-    String response = get("http://restcountries.eu/rest/v1/").asString();
+  void shouldFindAllStarshipWithSpecificRating() {
+    String response = get("https://swapi.dev/api/starships?format=json").asString();
 
-    List<String> largeCountries =
-        from(response).getList("findAll { it.population > 100000000 }.name");
+    List<String> starshipWithSpecificRating =
+        from(response).getList("results.findAll{it.hyperdrive_rating == '1.0'}.name");
 
-    assertThat(largeCountries).isNotEmpty().hasSize(12);
+    assertThat(starshipWithSpecificRating).isNotEmpty().hasSize(4);
   }
 
-  @Test
-  void sumUpNamesLengthWithJsonPath() {
-    String response = get("http://restcountries.eu/rest/v1/").asString();
-
-    int sumNames = from(response).getInt("name*.length().sum()");
-
-    assertThat(sumNames).isEqualTo(2490);
-  }
+  /**
+   * @Test void sumUpNamesLengthWithJsonPath() { String response =
+   * get("http://restcountries.eu/rest/v1/").asString();
+   *
+   * <p>int sumNames = from(response).getInt("name*.length().sum()");
+   *
+   * <p>assertThat(sumNames).isEqualTo(2490); }
+   */
 }

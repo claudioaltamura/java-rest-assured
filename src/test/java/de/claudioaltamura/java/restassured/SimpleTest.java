@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 class SimpleTest {
 
   @Test
-  void whenSuccessOnGetResponse200AndJsonHasRequiredKV() {
+  void shouldResponse200AndJsonHasRequiredKV() {
     get("https://swapi.dev/api/people/2/?format=json")
         .then()
         .statusCode(200)
@@ -18,12 +18,12 @@ class SimpleTest {
   }
 
   @Test
-  void withRequestWhenSuccessOnGetResponse200() {
+  void shouldResponse200() {
     when().request("GET", "https://swapi.dev/api/people/3/?format=json").then().statusCode(200);
   }
 
   @Test
-  void whenSuccessOnGetResponse200AndCheckArray() {
+  void shouldResponse200AndCheckArray() {
     get("http://swapi.dev/api/people/3/?format=json")
         .then()
         .statusCode(200)
