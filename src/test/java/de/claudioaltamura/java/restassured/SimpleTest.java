@@ -10,8 +10,11 @@ class SimpleTest {
 
   @Test
   void shouldResponse200AndJsonHasRequiredKV() {
-    get("https://swapi.dev/api/people/2/?format=json")
+    when()
+        .get("https://swapi.dev/api/people/2/?format=json")
         .then()
+        .log()
+        .ifError()
         .statusCode(200)
         .assertThat()
         .body("name", equalTo("C-3PO"));
