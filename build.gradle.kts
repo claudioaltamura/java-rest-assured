@@ -16,7 +16,7 @@ java {
 
 dependencies {
     testImplementation("io.rest-assured:rest-assured:5.4.0")
-    testImplementation("org.hamcrest:hamcrest-all:1.3")
+    testImplementation("org.hamcrest:hamcrest:2.2")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
     testImplementation("org.assertj:assertj-core:3.25.3")
 
