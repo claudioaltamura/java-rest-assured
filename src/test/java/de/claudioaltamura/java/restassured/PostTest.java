@@ -12,6 +12,7 @@ class PostTest {
   @Test
   void shouldResponse201WhenCreateAResource() {
     with()
+            .header("Content-Type", "application/json; charset=UTF-8")
         .body(new Post("test", "This is a test", 1))
         .when()
         .request("Post", "https://jsonplaceholder.typicode.com/posts")
