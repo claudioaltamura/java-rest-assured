@@ -1,7 +1,7 @@
 plugins {
     java
     id("com.diffplug.spotless") version "6.25.0"
-    id("com.github.ben-manes.versions") version "0.51.0"
+    id("com.github.ben-manes.versions") version "0.52.0"
 }
 
 repositories {
@@ -15,13 +15,13 @@ java {
 }
 
 dependencies {
-    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.17.1")
-    testImplementation("io.rest-assured:rest-assured:5.4.0")
-    testImplementation("org.hamcrest:hamcrest:2.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
-    testImplementation("org.assertj:assertj-core:3.25.3")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
+    testImplementation("io.rest-assured:rest-assured:5.5.1")
+    testImplementation("org.hamcrest:hamcrest:3.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.12.1")
+    testImplementation("org.assertj:assertj-core:3.27.3")
 
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.12.1")
 }
 
 spotless {
