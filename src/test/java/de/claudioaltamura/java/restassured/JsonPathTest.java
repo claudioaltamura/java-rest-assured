@@ -19,6 +19,21 @@ class JsonPathTest {
     assertThat(starshipWithSpecificRating).isNotEmpty().hasSize(4);
   }
 
+  @Test
+  void shouldResponseAllFilmsAnd200() {
+    var films =
+        get("http://swapi.dev/api/films/?format=json").then().statusCode(200).extract().jsonPath();
+    assertThat(films.getList("results")).hasSize(6);
+    assertThat(films.getList("results.title"))
+        .contains(
+            "A New Hope",
+            "The Empire Strikes Back",
+            "Return of the Jedi",
+            "The Phantom Menace",
+            "Attack of the Clones",
+            "Revenge of the Sith");
+  }
+
   /**
    * @Test void sumUpNamesLengthWithJsonPath() { String response =
    * get("http://restcountries.eu/rest/v1/").asString();
@@ -27,4 +42,5 @@ class JsonPathTest {
    *
    * <p>assertThat(sumNames).isEqualTo(2490); }
    */
+
 }
