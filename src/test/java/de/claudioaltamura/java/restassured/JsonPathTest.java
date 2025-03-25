@@ -42,5 +42,4 @@ class JsonPathTest {
    *
    * <p>assertThat(sumNames).isEqualTo(2490); }
    */
-
 }
