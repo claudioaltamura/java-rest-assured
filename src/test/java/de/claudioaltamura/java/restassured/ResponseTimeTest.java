@@ -1,6 +1,6 @@
 package de.claudioaltamura.java.restassured;
 
-import static io.restassured.RestAssured.get;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.lessThan;
 
 import org.junit.jupiter.api.Disabled;
@@ -12,6 +12,13 @@ class ResponseTimeTest {
   @Test
   void shouldFailIfMeasuredResponseTimeIsNotOk() {
     var thresholdInMs = 100L;
-    get("https://swapi.dev/api/people/2/?format=json").then().time(lessThan(thresholdInMs));
+    given()
+        .when()
+        .get("https://swapi.tech/api/people/2/?format=json")
+        .then()
+        .log()
+        .ifError()
+        .assertThat()
+        .time(lessThan(thresholdInMs));
   }
 }
