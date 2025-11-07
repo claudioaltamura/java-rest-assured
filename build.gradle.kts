@@ -1,7 +1,7 @@
 plugins {
     java
-    id("com.diffplug.spotless") version "7.0.2"
-    id("com.github.ben-manes.versions") version "0.52.0"
+    id("com.diffplug.spotless") version "8.0.0"
+    id("com.github.ben-manes.versions") version "0.53.0"
 }
 
 repositories {
@@ -10,18 +10,24 @@ repositories {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
 dependencies {
+    // Align JUnit artifacts
+    testImplementation(platform("org.junit:junit-bom:5.10.2"))
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    // Ensure JUnit Platform launcher is available on the test runtime classpath
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.10.2")
+
     testImplementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
-    testImplementation("io.rest-assured:rest-assured:5.5.1")
+    testImplementation("io.rest-assured:rest-assured:5.5.6")
     testImplementation("org.hamcrest:hamcrest:3.0")
     testImplementation("org.assertj:assertj-core:3.26.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.3")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.3")
 }
 
 spotless {
@@ -34,6 +40,5 @@ spotless {
 }
 
 tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
